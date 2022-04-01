@@ -1,0 +1,50 @@
+.game_wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+  overflow: auto;
+}
+
+.ДоскаПоЦендру {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.ДоскаИгры {
+  box-shadow: 4px 4px 16px lightgray;
+  margin: 8px;
+  background-color: green;
+  border: 2px solid grey;
+  border-radius: 4px;
+}
+
+.СтолСопер,
+.МойСтол,
+.ТяжАльтСопер,
+.МояТяжАльт,
+.ЛучСопер,
+.МоиЛуч,
+.МечСопер,
+.МоиМеч {
+  height: 128px;
+}
+
+.СтолСопер,
+.МойСтол {
+  background-color: #7cffe7;
+}
+
+.ТяжАльтСопер,
+.МояТяжАльт {
+  background-color: #baffb4;
+}
+
+.ЛучСопер,
+.МоиЛуч {
+  background-color: #fdd7c1;
+}
+
+.МечСопер,
+.МоиМеч {
+  background-color: #faffbe;
+}
