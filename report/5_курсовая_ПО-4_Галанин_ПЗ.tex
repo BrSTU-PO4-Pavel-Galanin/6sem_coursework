@@ -1,0 +1,94 @@
+\documentclass[12pt, a4paper, simple]{eskdtext}
+
+\usepackage{hyperref}
+\usepackage{env}
+\usepackage{_sty/gpi_lst}
+\usepackage{_sty/gpi_toc}
+\usepackage{_sty/gpi_t}
+\usepackage{_sty/gpi_p}
+\usepackage{_sty/gpi_u}
+
+% Код
+\ESKDletter{}{К}{Р}
+\def \gpiDocTypeNum {81}
+\def \gpiDocVer {00}
+\def \gpiCode {\ESKDtheLetterI\ESKDtheLetterII\ESKDtheLetterIII.\gpiStudentGroupName\gpiStudentGroupNum.\gpiStudentCard-0\gpiDocNum~\gpiDocTypeNum~\gpiDocVer}
+
+\def \gpiDocTopic {ПОЯСНИТЕЛЬНАЯ ЗАПИСКА}
+
+% Графа 1 (наименование изделия/документа)
+\ESKDcolumnI {\ESKDfontIII \gpiTopic \\ \gpiDocTopic}
+
+% Графа 2 (обозначение документа)
+\ESKDsignature {\gpiCode}
+
+% Графа 9 (наименование или различительный индекс предприятия) задает команда
+\ESKDcolumnIX {\gpiDepartment}
+
+% Графа 11 (фамилии лиц, подписывающих документ) задают команды
+\ESKDcolumnXIfI {\gpiStudentSurname}
+\ESKDcolumnXIfII {\gpiTeacherSurname}
+\ESKDcolumnXIfV {\gpiTeacherSurname}
+
+\begin{document}
+    \input{_tex/gpi_pz_titlePage.tex}
+
+    \ESKDthisStyle{empty}
+    лист с заданием
+    \newpage
+    \ESKDthisStyle{formII}
+
+    % Содержание
+    \tableofcontents                                
+    \paragraph{ПРИЛОЖЕНИЕ А. СХЕМА ПРОГРАММЫ}
+    \paragraph{ПРИЛОЖЕНИЕ Б. ТЕКСТ ПРОГРАММЫ}
+    \newpage
+
+    %
+    \newpage
+    \addcontentsline{toc}{section}{ВВЕДЕНИЕ}
+    \section*{ВВЕДЕНИЕ}
+    \newpage
+
+    %
+    \section{АНАЛИЗ ПОСТАВКИ ЗАДАЧИ}
+    \subsection{Перечень функций}
+    \subsection{Требования пользователей}
+    \subsection{Описание предметной области}
+    \subsection{Варианты использования программы в виде диаграмм прецедентов (use case)}
+    \subsection{Первичное описание объектов и классов, прецедентов системы}
+    \subsection{Первоначаьное описание отношений между классами}
+    \subsection{Диаграмма состояний (statechart diagram) для прецендентов}
+    \newpage
+
+    %
+    \section{ПРОЕКТИРОВАНИЕ СТРУКТУРЫ ПРИЛОЖЕНИЯ}
+    \subsection{Диаграммы классов предметной области}
+    \subsection{Графический интерфейс приложения}
+    \subsection{Общая диаграмма с учётом каркаса}
+    \subsection{Диаграмма последовательностей (sequence diagram)}
+    \subsection{Диаграмма видов деятельности (activity diagram)}
+    \newpage
+    
+    %
+    \section{РАЗРАБОТКА АЛГОРИТМОВ ФУНКЦИОНИРОВАНИЯ И СТРУКТУР ДАННЫХ}
+    \newpage
+    
+    %
+    \section{РЕАЛИЗАЦИЯ ПРИЛОЖЕНИЯ И РЕЗУЛЬТАТЫ ИСПЫТАНИЙ}
+    \subsection{Диаграмма компонентов (component diagram)}
+    \subsection{Диаграмма развёртывания (deployment diagram)}
+    \subsection{Тестирование приложения}
+    \newpage
+
+    %
+    \newpage
+    \addcontentsline{toc}{section}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
+    \section*{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
+    \begin{enumerate}
+        \item[1.] title- [Электронный ресурс]
+        Режим доступа: \url{https://www.youtube.com/watch?v=}
+        Дата~доступа:~xx.xx.2022.
+    \end{enumerate}
+    \newpage
+\end{document}
