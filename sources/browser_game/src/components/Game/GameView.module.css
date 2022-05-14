@@ -21,6 +21,29 @@
   font-size: 2em;
 }
 
+.statistic_block > button {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  border: 1px solid red;
+  background-color: red;
+  color: white;
+}
+
+.statistic_block > button:hover {
+  border: 1px solid red;
+  background-color: transparent;
+  color: red;
+}
+
+.button_enabled {
+  opacity: 0.9;
+}
+
+.button_disables {
+  opacity: 0.2;
+}
+
 .player_s_card_field .game_cards_block,
 .heavy_weapons_field .game_cards_block,
 .field_of_archers .game_cards_block,

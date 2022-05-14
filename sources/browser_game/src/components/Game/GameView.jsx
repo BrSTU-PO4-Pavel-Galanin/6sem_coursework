@@ -9,9 +9,12 @@ function GameView() {
   const [player1_cards, set_player1_cards] = useState([]);
   const [player2_cards, set_player2_cards] = useState([]);
 
+  const [player1_damage, set_player1_damage] = useState(0);
   const [player1_swordsman_damage, set_player1_swordsman_damage] = useState(0);
   const [player1_archer_damage, set_player1_archer_damage] = useState(0);
   const [player1_artillery_damage, set_player1_artillery_damage] = useState(0);
+
+  const [player2_damage, set_player2_damage] = useState(0);
   const [player2_swordsman_damage, set_player2_swordsman_damage] = useState(0);
   const [player2_archer_damage, set_player2_archer_damage] = useState(0);
   const [player2_artillery_damage, set_player2_artillery_damage] = useState(0);
@@ -31,6 +34,7 @@ function GameView() {
     game_instance.player1_take_card(id);
 
     set_player1_cards(game_instance.get_player1_cards());
+    set_player1_damage(game_instance.get_player1_all_damage());
     set_player1_swordsman_damage(game_instance.get_player1_swordsman_damage());
     set_player1_archer_damage(game_instance.get_player1_archer_damage());
     set_player1_artillery_damage(game_instance.get_player1_arlillery_damage());
@@ -46,6 +50,7 @@ function GameView() {
     game_instance.player2_take_card(id);
 
     set_player2_cards(game_instance.get_player2_cards());
+    set_player2_damage(game_instance.get_player2_all_damage());
     set_player2_swordsman_damage(game_instance.get_player2_swordsman_damage());
     set_player2_archer_damage(game_instance.get_player2_archer_damage());
     set_player2_artillery_damage(game_instance.get_player2_arlillery_damage());
@@ -100,7 +105,7 @@ function GameView() {
             );
           })}
         </div>
-        <div className={styles.statistic_block}></div>
+        <DamageBlock damage={player2_damage} />
       </div>
       <div className={styles.field_of_swordsmen}>
         <DamageBlock damage={player2_swordsman_damage} />
@@ -113,7 +118,17 @@ function GameView() {
             );
           })}
         </div>
-        <div className={styles.statistic_block}></div>
+        <div className={styles.statistic_block}>
+          <button
+            className={
+              player2_button_disable
+                ? styles.button_disables
+                : styles.button_enabled
+            }
+          >
+            ПАС
+          </button>
+        </div>
       </div>
       <div className={styles.field_of_swordsmen}>
         <DamageBlock damage={player1_swordsman_damage} />
@@ -126,7 +141,17 @@ function GameView() {
             );
           })}
         </div>
-        <div className={styles.statistic_block}></div>
+        <div className={styles.statistic_block}>
+          <button
+            className={
+              player1_button_disable
+                ? styles.button_disables
+                : styles.button_enabled
+            }
+          >
+            ПАС
+          </button>
+        </div>
       </div>
       <div className={styles.field_of_archers}>
         <DamageBlock damage={player1_archer_damage} />
@@ -139,7 +164,7 @@ function GameView() {
             );
           })}
         </div>
-        <div className={styles.statistic_block}></div>
+        <DamageBlock damage={player1_damage} />
       </div>
       <div className={styles.heavy_weapons_field}>
         <DamageBlock damage={player1_artillery_damage} />

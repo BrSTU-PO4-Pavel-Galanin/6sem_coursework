@@ -144,7 +144,6 @@ class GameController {
   }
 
   get_player1_cards() {
-    console.log(this.player1_cards);
     return this.player1_cards;
   }
 
@@ -194,6 +193,26 @@ class GameController {
 
   get_player2_arlillery_damage() {
     return this.get_player2_damage('artillery');
+  }
+
+  get_player1_all_damage() {
+    let count = 0;
+    this.player1_cards.forEach((element) => {
+      if (element.where === 'onWar') {
+        count += element.damage;
+      }
+    });
+    return count;
+  }
+
+  get_player2_all_damage() {
+    let count = 0;
+    this.player2_cards.forEach((element) => {
+      if (element.where === 'onWar') {
+        count += element.damage;
+      }
+    });
+    return count;
   }
 }
 
