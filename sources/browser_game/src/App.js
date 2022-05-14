@@ -1,9 +1,7 @@
-import Game from "./components/Game/Game";
+import GameView from './components/Game/GameView';
 
 function App() {
-  return (
-    <Game />
-  );
+  return <GameView />;
 }
 
 export default App;
