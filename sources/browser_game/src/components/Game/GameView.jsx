@@ -9,11 +9,13 @@ function GameView() {
   const [player1_cards, set_player1_cards] = useState([]);
   const [player2_cards, set_player2_cards] = useState([]);
 
+  const [player1_pas, set_player1_pas] = useState(false);
   const [player1_damage, set_player1_damage] = useState(0);
   const [player1_swordsman_damage, set_player1_swordsman_damage] = useState(0);
   const [player1_archer_damage, set_player1_archer_damage] = useState(0);
   const [player1_artillery_damage, set_player1_artillery_damage] = useState(0);
 
+  const [player2_pas, set_player2_pas] = useState(false);
   const [player2_damage, set_player2_damage] = useState(0);
   const [player2_swordsman_damage, set_player2_swordsman_damage] = useState(0);
   const [player2_archer_damage, set_player2_archer_damage] = useState(0);
@@ -29,8 +31,15 @@ function GameView() {
       return;
     }
 
-    set_player1_button_disable(true);
-    set_player2_button_disable(false);
+    if (player1_pas === true) {
+      return;
+    }
+
+    if (player2_pas === false) {
+      set_player1_button_disable(true);
+      set_player2_button_disable(false);
+    }
+
     game_instance.player1_take_card(id);
 
     set_player1_cards(game_instance.get_player1_cards());
@@ -45,8 +54,15 @@ function GameView() {
       return;
     }
 
-    set_player2_button_disable(true);
-    set_player1_button_disable(false);
+    if (player2_pas === true) {
+      return;
+    }
+
+    if (player1_pas === false) {
+      set_player2_button_disable(true);
+      set_player1_button_disable(false);
+    }
+
     game_instance.player2_take_card(id);
 
     set_player2_cards(game_instance.get_player2_cards());
@@ -54,6 +70,32 @@ function GameView() {
     set_player2_swordsman_damage(game_instance.get_player2_swordsman_damage());
     set_player2_archer_damage(game_instance.get_player2_archer_damage());
     set_player2_artillery_damage(game_instance.get_player2_arlillery_damage());
+  }
+
+  function player1_pas_clicked() {
+    if (player1_pas === true) {
+      return;
+    }
+
+    set_player1_pas(true);
+    set_player1_button_disable(true);
+
+    if (player2_pas === false) {
+      set_player2_button_disable(false);
+    }
+  }
+
+  function player2_pas_clicked() {
+    if (player2_pas === true) {
+      return;
+    }
+
+    set_player2_pas(true);
+    set_player2_button_disable(true);
+
+    if (player1_pas === false) {
+      set_player1_button_disable(false);
+    }
   }
 
   return (
@@ -120,11 +162,12 @@ function GameView() {
         </div>
         <div className={styles.statistic_block}>
           <button
-            className={
+            className={`${
               player2_button_disable
                 ? styles.button_disables
                 : styles.button_enabled
-            }
+            } ${player2_pas === true ? styles.button_pas : ''}`}
+            onClick={(event) => player2_pas_clicked()}
           >
             ПАС
           </button>
@@ -143,11 +186,12 @@ function GameView() {
         </div>
         <div className={styles.statistic_block}>
           <button
-            className={
+            className={`${
               player1_button_disable
                 ? styles.button_disables
                 : styles.button_enabled
-            }
+            } ${player1_pas === true ? styles.button_pas : ''}`}
+            onClick={(event) => player1_pas_clicked()}
           >
             ПАС
           </button>
