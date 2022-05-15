@@ -102,7 +102,12 @@ function GameView() {
   return (
     <div className={styles.game_wrapper}>
       {player1_pas === true && player2_pas === true ? (
-        <EndGameWindow counter1={player1_damage} counter2={player2_damage} />
+        <EndGameWindow
+          player1_name={'Player1'}
+          player2_name={'Player2'}
+          player1_damage={player1_damage}
+          player2_damage={player2_damage}
+        />
       ) : (
         <React.Fragment></React.Fragment>
       )}

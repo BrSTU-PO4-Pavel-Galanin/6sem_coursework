@@ -17,11 +17,15 @@ function ResultsTable() {
   }, []);
 
   async function get_statistic_data() {
-    const url = 'http://localhost:3001/api/GameResults';
-    const response = await axios.get(url);
-    const array = response.data.data;
-    console.log(array);
-    set_array_data(array);
+    try {
+      const url = 'http://localhost:3001/api/GameResults';
+      const response = await axios.get(url);
+      const array = response.data.data;
+      console.log(array);
+      set_array_data(array);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
