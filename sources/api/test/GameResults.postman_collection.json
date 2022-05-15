@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "0e22ce8a-93d9-4e9c-8abc-454303f507a4",
+		"name": "GameResults",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": [{\r\n        \"player1\": \"Player1\",\r\n        \"player2\": \"Player2\",\r\n        \"player1_damage\": 10,\r\n        \"player2_damage\": 10\r\n    }]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/GameResults",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"GameResults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/api/GameResults",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"GameResults"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
