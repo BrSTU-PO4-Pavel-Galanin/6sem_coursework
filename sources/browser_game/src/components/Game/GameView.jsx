@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './GameView.module.css';
 import GameController from './GameController';
+import EndGameWindow from './../EndGameWindow/EndGameWindow';
 
 function GameView() {
   const [game_instance, setGame_instance] = useState(new GameController());
@@ -100,6 +101,11 @@ function GameView() {
 
   return (
     <div className={styles.game_wrapper}>
+      {player1_pas === true && player2_pas === true ? (
+        <EndGameWindow counter1={player1_damage} counter2={player2_damage} />
+      ) : (
+        <React.Fragment></React.Fragment>
+      )}
       <div className={styles.player_s_card_field}>
         <div className={styles.statistic_block}></div>
         <div className={styles.game_cards_block}>
